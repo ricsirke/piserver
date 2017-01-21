@@ -2,7 +2,7 @@ import RPi.GPIO as IO
 import time
 
 IO.setwarnings(False)
-IO.setmode(IO.BCM)             #we are programming the GPIO by BCM pin numbers. (PIN35 as ‘GPIO19’)
+IO.setmode(IO.BCM)             #we are programming the GPIO by BCM pin numbers. (PIN35 as 'GPIO19')
 IO.setup(19, IO.OUT)           # initialize GPIO19 as an output.
 
 p = IO.PWM(19, 100)            #GPIO19 as PWM output, with 100Hz frequency
