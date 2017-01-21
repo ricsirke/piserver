@@ -39,7 +39,7 @@ $(function(){
     };
 
     var doLedReq = function(data){
-        doLedAjax(data);
+        doLedXhr(data);
     }
 
 
