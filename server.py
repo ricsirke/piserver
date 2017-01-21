@@ -45,8 +45,8 @@ def hello():
 @app.route("/led", methods=['POST'])
 def led():
     # have to store the state of the led
-    form = request.form
-    print form
+    json = request.get_json()
+    print "json:", json, "\n\n"
     
     if form['dev'] == "led":
         global dc
