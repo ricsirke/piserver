@@ -1,4 +1,9 @@
 $(function(){
+    function __getEl(id){
+        return document.getElementById(id);
+    }
+
+
 
     var doLedAjax = function(data){
 	$.ajax({
@@ -14,28 +19,22 @@ $(function(){
     
 
 
-    var btnOnoffHandler = function(){
+    __getEl("btnOnoff").onclick = function(){
         var data = { "dev": "led", "op": "toogle" };
         doLedAjax(data);
     };
 
 
-    var btnLedPlusHandler = function(){
+    __getEl("btnLedPlus").onclick = function(){
         var data = { "dev": "led", "op": "setLum", "incr": 20 };
         doLedAjax(data);
     };
 
 
-    var btnLedMinHandler = function(){
+    __getEl("btnLedMin).onclick = function(){
         var data = { "dev": "led", "op": "setLum", "incr": -20 };
         doLedAjax(data);
     };
-    
-    $("#btnOnoff").click(btnOnoffHandler);
-    $("#btnLedPlus").click(btnLedPlusHandler);
-    $("#btnLedMin").click(btnLedMinHandler);
-    
-    
     
     
 });
