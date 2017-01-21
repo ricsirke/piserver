@@ -22,7 +22,7 @@ $(function(){
 		}
 		//else 
 		else if (r.readyState == 4 && r.status != 200 && r.status != 500 ) { 
-			alert ("Something went wrong!");
+			alert ("Something went wrong!   status:" + r.status);
 			return ("fail"); }
 	}
     }
