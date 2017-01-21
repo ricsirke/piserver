@@ -48,23 +48,23 @@ def led():
     json = request.get_json()
     print "json:", json, "\n\n"
     
-    if form['dev'] == "led":
+    if json['dev'] == "led":
         global dc
-        if form['op'] == "toogle":
+        if json['op'] == "toogle":
             doToogle()
-        elif form['op'] == "setLum":
-            doSetLum(int(request.form['incr']))
+        elif json['op'] == "setLum":
+            doSetLum(int(json['incr']))
 
         print dc
     
-    elif request.form['targetDevType'] == "radio":
-        if request.form['op'] == "start":
+    elif request.json['targetDevType'] == "radio":
+        if request.json['op'] == "start":
             pass
-        elif form['op'] == "stop":
+        elif json['op'] == "stop":
             pass
-        elif form['op'] == "next":
+        elif json['op'] == "next":
             pass
-        elif form['op'] == "prev":
+        elif json['op'] == "prev":
             pass
     
     return 'ok'
