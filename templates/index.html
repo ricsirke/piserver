@@ -16,28 +16,12 @@
       <h1>Hello, stranger!</h1>
     {% endif %}
     
-    <form method="get" action="/readings">
-        <input type="submit" value="Readings"/>
-    </form>
-    
     <br><br>
     
-    <form action="/readings/" method="post">
-        sensorId<br>
-        <input type="text" value="" name="sensorId"><br>
-        
-        sensorType<br>
-        <input type="text" value="" name="sensorType"><br>
-        
-        value<br>
-        <input type="text" value="" name="value"><br>
-        
-        <br>
-        
-        <input type="submit" value="post">
-    </form>
     
     <button type="button" id="btnOnoff">{{ toogleBtnVal }}</button>
+    <button type="button" id="btnLedPlus">+</button>
+    <button type="button" id="btnLedMin">-</button>
     
     <script type="text/javascript" src="static/index.js"></script>
     </body>
