@@ -5,10 +5,10 @@ $(function(){
 
     var doLedXhr = function(data){
         var r = new XMLHttpRequest();
-        r.open( "POST" , "/led", true);
         
-        //params = '=' + data + '&amp;pwd=' + data
-        r.send("hali");
+        r.open( "POST" , "/led", true);
+        r.setRequestHeader('Content-type', 'application/application/json');
+        r.send(data);
         
         r.onreadystatechange = function () {
 		if (r.readyState == 4 && r.status == 200) {
