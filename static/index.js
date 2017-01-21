@@ -55,7 +55,7 @@ $(function(){
     };
 
 
-    __getEl("btnLedMin).onclick = function(){
+    __getEl("btnLedMin").onclick = function(){
         var data = { "dev": "led", "op": "setLum", "incr": -20 };
         doLedReq(data);
     };
