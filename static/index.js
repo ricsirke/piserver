@@ -8,7 +8,7 @@ $(function(){
         r.open( "POST" , "/led", true);
         
         //params = '=' + data + '&amp;pwd=' + data
-        r.send(data);
+        r.send("hali");
         
         r.onreadystatechange = function () {
 		if (r.readyState == 4 && r.status == 200) {
