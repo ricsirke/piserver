@@ -13,7 +13,8 @@ $(function(){
         r.onreadystatechange = function () {
 		if (r.readyState == 4 && r.status == 200) {
 			data = r.responseText;
-			alert(data);
+			// returns "ok"
+            //alert(data);
 		}
 		//test if fail
 		else if (r.readyState == 4 && r.status == 500) {
