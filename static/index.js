@@ -7,8 +7,8 @@ $(function(){
         var r = new XMLHttpRequest();
         
         r.open( "POST" , "/led", true);
-        r.setRequestHeader('Content-type', 'application/application/json');
-        r.send(data);
+        r.setRequestHeader('Content-type', 'application/json');
+        r.send(JSON.stringify(data));
         
         r.onreadystatechange = function () {
 		if (r.readyState == 4 && r.status == 200) {
