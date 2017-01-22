@@ -66,7 +66,7 @@ def doStrob(spd):
             p.ChangeDutyCycle(0)
             time.sleep(t)
         
-    thr.start_new_thread(loop, (thrStrob, ))
+    #thr.start_new_thread(loop, (thrStrob, ))
     
     
     
