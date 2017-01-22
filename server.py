@@ -14,7 +14,7 @@ global thrStrob
 app = Flask(__name__)
 
 
-def doTask(task):
+def doTask(task, *args):
     global thrStrob
     
     try:
@@ -22,7 +22,7 @@ def doTask(task):
     except:
         pass
         
-    task()
+    task(*args)
 
     
 
@@ -78,9 +78,9 @@ def led():
     if json['dev'] == "led":
         global dc
         if json['op'] == "toogle":
-            doToogle()
+            doTask(doToogle)
         elif json['op'] == "setLum":
-            doSetLum(int(json['incr']))
+            doTask(doSetLum, int(json['incr']))
         elif json['op'] == "strob":
             doStrob(int(json['spd']))
 
