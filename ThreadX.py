@@ -1,10 +1,10 @@
 class ThreadX(Thread):
     def __init__(self):
-        self.continue = True
+        self.cont = True
 
     def run(self, loop):
-        while self.continue:
+        while self.cont:
             loop()
 
     def stop(self):
-        self.continue = False
+        self.cont = False
