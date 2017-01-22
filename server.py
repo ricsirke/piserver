@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import os, json, time
 import RPi.GPIO as GPIO
-from ThreadX import ThreadX
+import thread as thr
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(12, GPIO.OUT)
@@ -16,10 +16,9 @@ app = Flask(__name__)
 
 def doTask(task, *args):
     global thrStrob
-    print thrStrob
     
     try:
-        thrStrob.stop()
+        thrStrob.set()
     except:
         pass
         
@@ -54,15 +53,17 @@ def doStrob(spd):
     global dc
     global thrStrob
     
-    thrStrob = ThreadX()
+    thrStrob = threading.Event()
     
     def loop():
+        while not thrStrob.is_set():
         p.ChangeDutyCycle(100)
         time.sleep(spd/100)
         p.ChangeDutyCycle(0)
         time.sleep(spd/100)
-
-    thrStrob.run(loop)
+        
+    thr.start_new_thread(loop)
+    
     
     
 
