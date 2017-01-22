@@ -9,7 +9,7 @@ p = GPIO.PWM(12, 500)
 dc = 0
 p.start(dc)
 
-global thrStrob
+thrStrob = thr.Event()
 
 app = Flask(__name__)
 
@@ -22,6 +22,7 @@ def doTask(task, *args):
     except:
         pass
         
+    thrStrob.clear()
     task(*args)
 
     
@@ -55,21 +56,17 @@ def doStrob(spd):
     t = spd/float(100)
     print "doStrob", spd, t
     
-    
-    #thrStrob = thr.Event()
-    print "after event init"
-    
     def loop():
         global thrStrob
         while not thrStrob.is_set():
-            print "inWhile"
             p.ChangeDutyCycle(100)
             time.sleep(t)
             p.ChangeDutyCycle(0)
             time.sleep(t)
-        
+    
+    
     print "after loop def"
-    #thr.start_new_thread(loop, (thrStrob, ))
+    thr.start_new_thread(loop)
     
     
     
