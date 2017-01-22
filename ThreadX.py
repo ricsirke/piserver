@@ -3,8 +3,8 @@ class ThreadX(Thread):
         self.continue = True
 
     def run(self, loop):
-        while (self.continue):
-            loop
+        while self.continue:
+            loop()
 
     def stop(self):
         self.continue = False
