@@ -16,6 +16,7 @@ app = Flask(__name__)
 
 def doTask(task, *args):
     global thrStrob
+    print thrStrob
     
     try:
         thrStrob.stop()
