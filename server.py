@@ -22,7 +22,7 @@ def doTask(task, *args):
     except:
         pass
         
-    thrStrob.clear()
+    #thrStrob.clear()
     task(*args)
 
     
