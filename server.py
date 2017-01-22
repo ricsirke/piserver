@@ -36,6 +36,11 @@ def doSetLum(incr):
     else:
         dc += incr
     p.ChangeDutyCycle(dc)
+    
+def doStrob(spd):
+    global dc
+    
+    pass
 
 
 @app.route("/")
@@ -54,6 +59,8 @@ def led():
             doToogle()
         elif json['op'] == "setLum":
             doSetLum(int(json['incr']))
+        elif json['op'] == "strob":
+            doStrob(int(json['spd']))
 
         print dc
     
