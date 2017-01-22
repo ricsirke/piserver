@@ -67,7 +67,7 @@ def doStrob(spd):
     
     print "after loop def"
     
-    thr.start_new_thread(loop)
+    thr.Thread(target=loop, args=())
     print "thread started"
     
     
