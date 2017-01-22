@@ -66,7 +66,7 @@ def doStrob(spd):
             time.sleep(t)
     
     thrStrob.clear()
-    th = thr.Thread(target=loop, args=(p, thrStrob))
+    th = thr.Thread(target=loop, args=(p, thrStrob, t))
     th.start()
     
     
