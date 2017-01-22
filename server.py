@@ -66,7 +66,9 @@ def doStrob(spd):
     
     
     print "after loop def"
+    
     thr.start_new_thread(loop)
+    print "thread started"
     
     
     
@@ -79,7 +81,7 @@ def hello():
 def led():
     # have to store the state of the led
     json = request.get_json()
-    print "json:", json, "\n\n"
+    print "\n\njson:", json, "\n\n"
     
     if json['dev'] == "led":
         global dc
