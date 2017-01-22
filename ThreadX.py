@@ -1,4 +1,6 @@
-class ThreadX(Thread):
+import threading
+
+class ThreadX(threading.Thread):
     def __init__(self):
         self.cont = True
 
