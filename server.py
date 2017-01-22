@@ -56,9 +56,7 @@ def doStrob(spd):
     
     thrStrob = thr.Event()
     
-    def loop():
-        with open("f", "w") as f:
-            f.write("loop")
+    def loop(thrStrob):
         while not thrStrob.is_set():
             print "inWhile"
             p.ChangeDutyCycle(100)
@@ -66,7 +64,7 @@ def doStrob(spd):
             p.ChangeDutyCycle(0)
             time.sleep(spd/100)
         
-    thr.start_new_thread(loop)
+    thr.start_new_thread(loop, (thrStrob, ))
     
     
     
