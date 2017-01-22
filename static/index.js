@@ -65,6 +65,7 @@ $(function(){
         // not the best source TODO
         var spd = parseInt(__getEl("strobVal").innerHTML);
         var data = { "dev": "led", "op": "strob", "spd": spd };
+        doLedReq(data);
     };
     
     __getEl("rngStrobVal").onchange = function(){

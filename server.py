@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
-import os, json
+import os, json, time
 import RPi.GPIO as GPIO
-
+from ThreadX import ThreadX
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(12, GPIO.OUT)
@@ -9,10 +9,22 @@ p = GPIO.PWM(12, 500)
 dc = 0
 p.start(dc)
 
-
+global thrStrob
 
 app = Flask(__name__)
 
+
+def doTask(task):
+    global thrStrob
+    
+    try:
+        thrStrob.stop()
+    except:
+        pass
+        
+    task()
+
+    
 
 def doToogle():
     global dc
@@ -39,9 +51,19 @@ def doSetLum(incr):
     
 def doStrob(spd):
     global dc
+    global thrStrob
     
-    pass
+    thrStrob = ThreadX()
+    
+    def loop():
+        p.ChangeDutyCycle(100)
+        time.sleep(spd/100)
+        p.ChangeDutyCycle(0)
+        time.sleep(spd/100)
 
+    thrStrob.run(loop)
+    
+    
 
 @app.route("/")
 def hello():
