@@ -56,7 +56,7 @@ def doStrob(spd):
     t = spd/float(100)
     print "doStrob", spd, t
     
-    def loop():
+    def loop(p):
         global thrStrob
         p.ChangeDutyCycle(100)
         while not thrStrob.is_set():
@@ -68,7 +68,7 @@ def doStrob(spd):
     
     print "after loop def"
     
-    thr.Thread(target=loop, args=())
+    thr.Thread(target=loop, args=(p))
     print "thread started"
     
     
