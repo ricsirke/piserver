@@ -61,13 +61,13 @@ $(function(){
         doLedReq(data);
     };
     
-    __getEl(rngStrobVal).onclick = function(){
+    __getEl("btnStrob").onclick = function(){
         // not the best source TODO
         var spd = __getEl(rngStrobVal).innerHTML;
         var data = { "dev": "led", "op": "strob", "spd": spd };
     };
     
-    __getEl(rngStrobVal).onchange = function(){
+    __getEl(rngStrobVal).onchange = function(newValue){
         __getEl(rngStrobVal).innerHTML=newValue;
     };
 });
