@@ -52,7 +52,9 @@ def doSetLum(incr):
 def doStrob(spd):
     global thrStrob
     
-    print "doStrob", spd, spd/100
+    t = spd/float(100)
+    print "doStrob", spd, t
+    
     
     thrStrob = thr.Event()
     
@@ -60,9 +62,9 @@ def doStrob(spd):
         while not thrStrob.is_set():
             print "inWhile"
             p.ChangeDutyCycle(100)
-            time.sleep(spd/100)
+            time.sleep(t)
             p.ChangeDutyCycle(0)
-            time.sleep(spd/100)
+            time.sleep(t)
         
     thr.start_new_thread(loop, (thrStrob, ))
     
