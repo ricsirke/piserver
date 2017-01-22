@@ -57,18 +57,13 @@ def doStrob(spd):
     print "doStrob", spd, t
     
     def loop(p, thr):
+        #global thrStrob
         p.ChangeDutyCycle(100)
-        time.sleep(3)
-        p.ChangeDutyCycle(0)
-        time.sleep(3)
-        p.ChangeDutyCycle(100)
-        # global thrStrob
-        # p.ChangeDutyCycle(100)
-        # while not thr.is_set():
-            # p.ChangeDutyCycle(100)
-            # time.sleep(t)
-            # p.ChangeDutyCycle(0)
-            # time.sleep(t)
+        while not thr.is_set():
+            p.ChangeDutyCycle(100)
+            time.sleep(t)
+            p.ChangeDutyCycle(0)
+            time.sleep(t)
     
     
     print "after loop def"
