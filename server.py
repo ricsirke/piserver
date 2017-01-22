@@ -57,7 +57,8 @@ def doStrob(spd):
     thrStrob = thr.Event()
     
     def loop():
-        print "inLoop"
+        with open("f", "w") as f:
+            f.write("loop")
         while not thrStrob.is_set():
             print "inWhile"
             p.ChangeDutyCycle(100)
