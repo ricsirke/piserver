@@ -53,7 +53,7 @@ def doStrob(spd):
     global dc
     global thrStrob
     
-    thrStrob = threading.Event()
+    thrStrob = thr.Event()
     
     def loop():
         while not thrStrob.is_set():
