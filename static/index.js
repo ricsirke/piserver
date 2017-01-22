@@ -67,8 +67,8 @@ $(function(){
         var data = { "dev": "led", "op": "strob", "spd": spd };
     };
     
-    __getEl("rngStrobVal").onchange = function(newValue){
-        __getEl("strobVal").innerHTML=newValue;
+    __getEl("rngStrobVal").onchange = function(){
+        __getEl("strobVal").innerHTML=this.value;
     };
 });
 
