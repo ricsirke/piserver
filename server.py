@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import os, json, time
 import RPi.GPIO as GPIO
-import thread as thr
+import threading as thr
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(12, GPIO.OUT)
