@@ -56,7 +56,7 @@ def doStrob(spd):
     print "doStrob", spd, t
     
     
-    thrStrob = thr.Event()
+    #thrStrob = thr.Event()
     print "after event init"
     
     def loop():
