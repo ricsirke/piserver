@@ -10,7 +10,6 @@ dc = 0
 p.start(dc)
 
 thrStrob = thr.Event()
-th = thr.Thread()
 
 app = Flask(__name__)
 
@@ -54,7 +53,6 @@ def doSetLum(incr):
     
 def doStrob(spd):
     global thrStrob
-    global th
     
     t = spd/float(100)
     print "doStrob", spd, t
@@ -69,9 +67,8 @@ def doStrob(spd):
             time.sleep(t)
     
     thrStrob.clear()
-    
-    th.target = loop
-    th.args = args=(p, thrStrob, t)
+    th = thr.Thread(target=loop, args=(p, thrStrob, t))
+
     th.start()
     
     
