@@ -65,12 +65,9 @@ def doStrob(spd):
             p.ChangeDutyCycle(0)
             time.sleep(t)
     
-    
-    print "after loop def"
-    
+    thrStrob.clear()
     th = thr.Thread(target=loop, args=(p, thrStrob))
     th.start()
-    print "thread started"
     
     
     
