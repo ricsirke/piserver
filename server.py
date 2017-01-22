@@ -50,8 +50,9 @@ def doSetLum(incr):
     p.ChangeDutyCycle(dc)
     
 def doStrob(spd):
-    global dc
     global thrStrob
+    
+    print "doStrob", spd, spd/100
     
     thrStrob = thr.Event()
     
