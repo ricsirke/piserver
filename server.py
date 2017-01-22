@@ -57,10 +57,10 @@ def doStrob(spd):
     
     def loop():
         while not thrStrob.is_set():
-        p.ChangeDutyCycle(100)
-        time.sleep(spd/100)
-        p.ChangeDutyCycle(0)
-        time.sleep(spd/100)
+            p.ChangeDutyCycle(100)
+            time.sleep(spd/100)
+            p.ChangeDutyCycle(0)
+            time.sleep(spd/100)
         
     thr.start_new_thread(loop)
     
