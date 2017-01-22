@@ -44,6 +44,11 @@ $(function(){
     }
 
 
+    __getEl("btnLedStop").onclick = function(){
+        var data = { "dev": "led", "op": "stop" };
+        doLedReq(data);
+    };
+
     __getEl("btnOnoff").onclick = function(){
         var data = { "dev": "led", "op": "toogle" };
         doLedReq(data);

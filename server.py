@@ -26,7 +26,11 @@ def doTask(task, *args):
     #thrStrob.clear()
     task(*args)
 
-    
+   
+def doStop():
+    global dc
+    dc = 0
+    p.ChangeDutyCycle(dc)
 
 def doToogle():
     global dc
@@ -86,7 +90,9 @@ def led():
     
     if json['dev'] == "led":
         global dc
-        if json['op'] == "toogle":
+        if json['op'] == "stop":
+            doTask(doStop)
+        elif json['op'] == "toogle":
             doTask(doToogle)
         elif json['op'] == "setLum":
             doTask(doSetLum, int(json['incr']))
