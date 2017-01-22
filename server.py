@@ -57,6 +57,7 @@ def doStrob(spd):
     print "doStrob", spd, t
     
     def loop(p):
+        p.ChangeDutyCycle(100)
         global thrStrob
         p.ChangeDutyCycle(100)
         while not thrStrob.is_set():
