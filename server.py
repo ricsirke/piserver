@@ -1,7 +1,7 @@
-import Led, Radio
+from Led import Led
 
 led = Led()
-radio = Radio()
+
 
 
 
@@ -12,12 +12,16 @@ from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
+def hello():    
+    """
     if led.dutyCycle > 0:
         toogleBtnText = 'off'
     else:
         toogleBtnText = 'on'
-        
+    """
+    print type(led)
+    """print led.getDC()"""
+    toogleBtnText = 'asd'
     return render_template('index.html', toogleBtnVal=toogleBtnText)
 
 
@@ -31,10 +35,6 @@ def led():
         led.processReqData(json)
         print led.dutyCycle
 
-    # TODO in contradiction with the url path
-    elif json['targetDevType'] == "radio":
-        radio.processReqData(json)
-    
     return 'ok'
 
 if __name__ == "__main__":   
