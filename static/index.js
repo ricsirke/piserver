@@ -132,19 +132,19 @@ $(function(){
          
         g.append("g")
           .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(x))
+          .call(d3.axisBottom(x_ax))
         .select(".domain")
           .remove();
           
-        // g.append("g")
-          // .call(d3.axisLeft(y))
-        // .append("text")
-          // .attr("fill", "#000")
-          // .attr("transform", "rotate(-90)")
-          // .attr("y", 6)
-          // .attr("dy", "0.71em")
-          // .attr("text-anchor", "end")
-          // .text("Temperature");
+        g.append("g")
+          .call(d3.axisLeft(y_ax))
+        .append("text")
+          .attr("fill", "#000")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", "0.71em")
+          .attr("text-anchor", "end")
+          .text("Temperature");
 });
 
 
