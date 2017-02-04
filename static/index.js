@@ -99,18 +99,16 @@ $(function(){
         {"hum": 22.5, "t": "2017-02-04 16:00:01.554436", "temp": 24.0},
     ];
     
-    var parseTime = d3.timeParse("%y-%b-%d %h:%m:%s.%ms");
-    
     data = data.map(function(d){
         d["t"] = new Date(d["t"]);
-        console.log(d["t"]);
         return d;
     })
     
     var svg = d3.select("svg"),
-        g = svg.append("g"),
-        width = svg.attr("width"),
-        height = svg.attr("height"),
+        margin = {top: 20, right: 20, bottom: 30, left: 50},
+        width = +svg.attr("width") - margin.left - margin.right,
+        height = +svg.attr("height") - margin.top - margin.bottom,
+        g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")"),
         x_ax = d3.scaleTime()
                  .rangeRound([0, width])
                  .domain(d3.extent(data, function(d){ return d["t"]; })),
@@ -121,6 +119,7 @@ $(function(){
                     .x(function(d){ return x_ax(d["t"]); })
                     .y(function(d){ return y_ax(d["temp"]); });
               
+        // line draw      
         g.append("path")
          .datum(data)
          .attr("fill", "none")
@@ -129,13 +128,15 @@ $(function(){
          .attr("stroke-linecap", "round")
          .attr("stroke-width", 1.5)
          .attr("d", lineGen);
-         
+        
+        // x axis draw
         g.append("g")
           .attr("transform", "translate(0," + height + ")")
           .call(d3.axisBottom(x_ax))
-        .select(".domain")
-          .remove();
-          
+        // .select(".domain")
+          // .remove();
+        
+        // y axis draw
         g.append("g")
           .call(d3.axisLeft(y_ax))
         .append("text")
