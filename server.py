@@ -1,4 +1,5 @@
 from Led import Led
+import dht11, datetime, json
 
 led = Led()
 
@@ -19,7 +20,6 @@ def hello():
     else:
         toogleBtnText = 'on'
     """
-    print type(led)
     """print led.getDC()"""
     toogleBtnText = 'asd'
     return render_template('index.html', toogleBtnVal=toogleBtnText)
@@ -37,5 +37,10 @@ def led():
 
     return 'ok'
 
+@app.route("/temphum", methods=['GET'])
+def temphum():
+    temp, hum = dht11.getTempHum()
+    return json.dumps({"t": str(datetime.datetime.now()), "temp": temp, "hum": hum})
+
 if __name__ == "__main__":   
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=True)

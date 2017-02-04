@@ -37,8 +37,10 @@ def avgData(samplesize):
 
     return avg_temp, avg_hum
 
+def getTempHum():
+    return avgData(2)
+
 #avg_temp, avg_hum = avgData(5)
 #printData(avg_temp, avg_hum)
 
-
-monitor(0, False)
+#monitor(0, False)
