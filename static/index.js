@@ -102,7 +102,7 @@ $(function(){
     var parseTime = d3.timeParse("%y-%b-%d %h:%m:%s.%ms");
     
     data = data.map(function(d){
-        //d["t"] = parseTime(d["t"]);
+        d["t"] = new Date(d["t"]);
         console.log(d["t"]);
         return d;
     })
