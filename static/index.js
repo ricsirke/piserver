@@ -7,8 +7,11 @@ $(function(){
         var r = new XMLHttpRequest();
         
         function onReqLoad(){
-            __getEl("temp").innerHTML = "";
-            __getEl("hum").innerHTML = "";
+            var temphum = JSON.parse(this.responseText),
+            
+            __getEl("temp").innerHTML = temphum.temp;
+            __getEl("hum").innerHTML = temphum.hum;
+            
             console.log(this.responseText);
         }
         
