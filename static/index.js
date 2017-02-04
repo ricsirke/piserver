@@ -99,7 +99,7 @@ $(function(){
         {"hum": 22.5, "t": "2017-02-04 16:00:01.554436", "temp": 24.0},
     ];
     
-    var parseTime = d3.timeParse("%d-%b-%y" "%y-%b-%d %h:%m:%s.%ms");
+    var parseTime = d3.timeParse("%y-%b-%d %h:%m:%s.%ms");
     
     data = data.map(function(d){
         d["t"] = parseTime(d["t"]);
