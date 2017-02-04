@@ -40,7 +40,7 @@ class Led():
         try:
             self.threadStrobStop.set()
         except:
-            pass
+                
 
         task(*args)
 
@@ -85,5 +85,5 @@ class Led():
             self.doTask(self.doSetLum, int(json['incr']))
         elif json['op'] == "strob":
             #self.doTask(doStrob, int(json['spd']))
-            pass
+                
     
