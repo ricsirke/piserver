@@ -7,7 +7,7 @@ class Led():
     def __init__(self, pinNrLed=12, dcinit=4):
         self.dutyCycle = dcinit
 
-        """self.initPin(pinNrLed)"""
+        self.initPin(pinNrLed)
 
         self.waitTime = 1
 
@@ -24,6 +24,7 @@ class Led():
         # MAKE SURE THE THREAD IS KILLED PROPERLY
         """self.threadStrobStop = thr.Event()"""
         """self.threadStrob = thr.Thread(target=loop, args=(self.pinLed, self.threadStrobStop, self._waitTime))"""
+    
     def getDC(self):
         return self.dutyCycle
 

@@ -27,6 +27,7 @@ def hello():
 
 @app.route("/led", methods=['POST'])
 def led():
+    global led
     # have to store the state of the led
     json = request.get_json()
     print "\n\njson:", json, "\n\n"
