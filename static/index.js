@@ -103,7 +103,7 @@ $(function(){
     
     data = data.map(function(d){
         d["t"] = parseTime(d["t"]);
-        
+        console.log(d["t"]);
         return d;
     })
     
