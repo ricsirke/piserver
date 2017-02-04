@@ -3,7 +3,7 @@ $(function(){
         return document.getElementById(id);
     }
 
-    var doTempHumXhr = function(data){
+    var doTempHumXhr = function(){
         var r = new XMLHttpRequest();
         
         function onReqLoad(){
@@ -16,6 +16,8 @@ $(function(){
         r.open( "GET" , "/temphum", true);
         r.send();
     };
+    
+    doTempHumXhr();
     
     var doLedXhr = function(data){
         var r = new XMLHttpRequest();
