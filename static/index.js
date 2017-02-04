@@ -129,6 +129,22 @@ $(function(){
          .attr("stroke-linecap", "round")
          .attr("stroke-width", 1.5)
          .attr("d", lineGen);
+         
+        g.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x))
+        .select(".domain")
+          .remove();
+          
+        g.append("g")
+          .call(d3.axisLeft(y))
+        .append("text")
+          .attr("fill", "#000")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", "0.71em")
+          .attr("text-anchor", "end")
+          .text("Temperature");
 });
 
 
