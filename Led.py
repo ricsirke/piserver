@@ -34,7 +34,7 @@ class Led:
         # freq = 500
         self.pinLed = GPIO.PWM(pinNrLed, 500)
         self.pinLed.start(self.dutyCycle)
-    """    
+        
     def doTask(self, task, *args):
         try:
             self.threadStrobStop.set()
@@ -65,7 +65,7 @@ class Led:
             self.dutyCycle += incr
             
         self.pinLed.ChangeDutyCycle(self.dutyCycle)
-    """    
+    
     """def doStrob(self, spd):
         self.waitTime = spd/float(100)
         print "doStrob", spd, self.waitTime
@@ -73,7 +73,7 @@ class Led:
         # MAKE SURE THE THREAD IS KILLED PROPERLY
         self.threadStrobStop.clear()
         self.threadStrob.start()"""
-    """    
+       
     # feels like it's from an another file
     def processReqData(self, json):
         if json['op'] == "stop":
@@ -83,5 +83,6 @@ class Led:
         elif json['op'] == "setLum":
             self.doTask(self.doSetLum, int(json['incr']))
         elif json['op'] == "strob":
-            self.doTask(doStrob, int(json['spd']))
-    """
+            #self.doTask(doStrob, int(json['spd']))
+            pass
+    
