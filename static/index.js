@@ -113,10 +113,10 @@ $(function(){
         height = svg.attr("height"),
         x_ax = d3.scaleTime()
                  .rangeRound([0, width])
-                 .domain(d3.extent(data, function(d){ return d["t"]; }),
+                 .domain(d3.extent(data, function(d){ return d["t"]; })),
         y_ax = d3.scaleLinear()
                  .rangeRound([0, height])
-                 .domain(d3.extent(data, function(d){ return d["temp"] }),
+                 .domain(d3.extent(data, function(d){ return d["temp"]; })),
         lineGen = d3.line()
                     .x(function(d){ return d["t"]; })
                     .y(function(d){ return d["temp"]; });
