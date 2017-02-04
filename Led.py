@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import threading as thr
 
 
-class Led:
+class Led():
     def __init__(self, pinNrLed=12, dcinit=4):
         self.dutyCycle = dcinit
 
