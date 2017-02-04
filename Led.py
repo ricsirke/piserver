@@ -6,12 +6,10 @@ import threading as thr
 class Led():
     def __init__(self, pinNrLed=12, dcinit=4):
         self.dutyCycle = dcinit
-
-        self.initPin(pinNrLed)
-
         self.waitTime = 1
-
-        """
+        self.initPin(pinNrLed)       
+    
+    def initStrob(self):
         def loop(p, thr, t):
             p.ChangeDutyCycle(100)
             while not thr.is_set():
@@ -19,11 +17,10 @@ class Led():
                 time.sleep(t)
                 p.ChangeDutyCycle(0)
                 time.sleep(t)
-        """
         
         # MAKE SURE THE THREAD IS KILLED PROPERLY
-        """self.threadStrobStop = thr.Event()"""
-        """self.threadStrob = thr.Thread(target=loop, args=(self.pinLed, self.threadStrobStop, self._waitTime))"""
+        self.threadStrobStop = thr.Event()
+        self.threadStrob = thr.Thread(target=loop, args=(self.pinLed, self.threadStrobStop, self._waitTime))
     
     def getDC(self):
         return self.dutyCycle
@@ -40,7 +37,7 @@ class Led():
         try:
             self.threadStrobStop.set()
         except:
-                
+            pass
 
         task(*args)
 
@@ -67,13 +64,13 @@ class Led():
             
         self.pinLed.ChangeDutyCycle(self.dutyCycle)
     
-    """def doStrob(self, spd):
+    def doStrob(self, spd):
         self.waitTime = spd/float(100)
         print "doStrob", spd, self.waitTime
         
         # MAKE SURE THE THREAD IS KILLED PROPERLY
         self.threadStrobStop.clear()
-        self.threadStrob.start()"""
+        self.threadStrob.start()
        
     # feels like it's from an another file
     def processReqData(self, json):
@@ -84,6 +81,5 @@ class Led():
         elif json['op'] == "setLum":
             self.doTask(self.doSetLum, int(json['incr']))
         elif json['op'] == "strob":
-            #self.doTask(doStrob, int(json['spd']))
-                
+            self.doTask(doStrob, int(json['spd']))
     
