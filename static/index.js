@@ -118,8 +118,8 @@ $(function(){
                  .rangeRound([0, height])
                  .domain(d3.extent(data, function(d){ return d["temp"]; })),
         lineGen = d3.line()
-                    .x(function(d){ return d["t"]; })
-                    .y(function(d){ return d["temp"]; });
+                    .x(function(d){ return x_ax(d["t"]); })
+                    .y(function(d){ return y_ax(d["temp"]); });
               
         g.append("path")
          .datum(data)
