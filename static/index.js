@@ -3,6 +3,20 @@ $(function(){
         return document.getElementById(id);
     }
 
+    var doTempHumXhr = function(data){
+        var r = new XMLHttpRequest();
+        
+        function onReqLoad(){
+            __getEl("temp").innerHTML = "";
+            __getEl("hum").innerHTML = "";
+            console.log(this.responseText);
+        }
+        
+        r.addEventListener("load", onReqLoad);
+        r.open( "GET" , "/temphum", true);
+        r.send();
+    };
+    
     var doLedXhr = function(data){
         var r = new XMLHttpRequest();
         
