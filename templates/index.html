@@ -6,9 +6,9 @@
         <title>home :)</title>
         
         <script type="text/javascript" src="static/jquery-3.1.1.min.js"></script>
-        
-        
+        <script type ="text/javascript" src="static/d3.js"></script>
     </head>
+    
     <body>
     {% if name %}
       <h1>Hello, {{ name }}!</h1>
@@ -24,11 +24,20 @@
     <button type="button" id="btnStrob">strob</button>
     <input id="rngStrobVal" type="range" min="0" max="100" value="0" step="5" />
     <span id="strobVal">0</span>
+    
     <br>
+    
     <button type="button" id="btnLedStop">stop</button>
+    
     <br><br>
-    <div id="tempCont">Temp <div id="temp"></div> C</div>
-    <div id="humCont">Hum <div id="hum"></div> %</div>
+    
+    <div id="tempCont">Temp <span id="temp"></span> C</div>
+    <div id="humCont">Hum <span id="hum"></span> %</div>
+    <button type="button" id="btnTempHumRefresh">refresh</button>
+    
+    <br>
+    
+    <div id="svgCont"><svg id="svg"></svg></div>
     
     <script type="text/javascript" src="static/index.js"></script>
     </body>
